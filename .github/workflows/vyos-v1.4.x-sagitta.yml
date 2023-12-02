@@ -1,4 +1,4 @@
-name: VyOS v1.4 Rolling Release
+name: VyOS v1.4.x Rolling Release
 
 on:
   schedule:
@@ -6,18 +6,18 @@ on:
 
 env:
   GIT_CLONE_URL: https://github.com/vyos/vyos-build
-  BRANCH: current
+  BRANCH: sagitta
   ARCHITECTURE: amd64
-  BUILD_BY: vyos-build-action@github.com
+  BUILD_BY: vyos-build-action@cnrd.me
   BUILD_TYPE: release
-  VERSION: 1.4-rolling
+  VERSION: 1.4.x-rolling
   DEBIAN_MIRROR: http://ftp.us.debian.org/debian/
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: vyos/vyos-build:current
+      image: vyos/vyos-build:sagitta
       options: --workdir /vyos --privileged
 
     steps:
