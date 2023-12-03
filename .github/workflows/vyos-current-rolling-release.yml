@@ -58,7 +58,6 @@ jobs:
         run: |
           asset=$(find ./vyos-${{ env.VERSION }}-${{ env.ARCHITECTURE }}-iso/ -name "vyos-${{ env.VERSION }}-*.iso" | xargs)
           tag_name="${{ env.VERSION }}"
-          echo "Running: gh release upload $tag_name $asset"
           gh release upload "$tag_name" "$asset"
 
   delete_old_workflow_runs:
