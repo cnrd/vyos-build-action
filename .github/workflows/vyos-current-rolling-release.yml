@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           asset=$(find ./vyos-${{ env.VERSION }}-${{ env.ARCHITECTURE }}-iso/ -name "vyos-${{ env.VERSION }}-*.iso" | xargs)
-          tag_name="v${{ env.VERSION }}"
+          tag_name="${{ env.VERSION }}"
           echo "Running: gh release upload $tag_name $asset"
           gh release upload "$tag_name" "$asset"
 
